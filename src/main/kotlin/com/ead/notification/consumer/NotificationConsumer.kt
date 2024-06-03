@@ -19,9 +19,9 @@ class NotificationConsumer(
     @RabbitListener(
         bindings = [
             QueueBinding(
-                value = Queue(value = "\${ead.broker.exchange.queue.notificationCommandQueue.name}", durable = "true"),
-                exchange = Exchange(value = "\${ead.broker.exchange.notificationCommandExchange}", type = ExchangeTypes.TOPIC, ignoreDeclarationExceptions = "true"),
-                key = ["\${ead.broker.exchange.key.notificationCommandKey}"]
+                value = Queue(value = "\${ead.broker.exchange.queue.notification-command-queue.name}", durable = "true"),
+                exchange = Exchange(value = "\${ead.broker.exchange.notification-command-exchange}", type = ExchangeTypes.TOPIC, ignoreDeclarationExceptions = "true"),
+                key = ["\${ead.broker.exchange.key.notification-command-key}"]
             )
         ]
     )

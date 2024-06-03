@@ -1,9 +1,24 @@
+server:
+  compression:
+    enabled: true
+  port: 8182
+  servlet:
+    context-path: /ead-notification
+  forward-headers-strategy: framework
+
 spring:
   application:
     name: ead-notification-service
-  cloud:
-    config:
-      discovery:
-        serviceId: ead-config-server
-      username: "configserver"
-      password: "ead123cs"
+  datasource:
+    url: ${ead.database.url}
+    username: ${ead.database.username}
+    password: ${ead.database.password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  rabbitmq:
+    addresses: ${ead.broker.connection.address}

@@ -6,7 +6,7 @@ logging:
     org.hibernate: INFO
 
 server:
-  port: 8182
+  port: ${PORT}
 
 spring:
   output:
@@ -15,12 +15,12 @@ spring:
 
 ead:
   database:
-    url: jdbc:postgresql://localhost:5432/authuser
-    username: postgres
-    password: mysecretpassword
+    url: ${DATABASE_CONN}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
   broker:
     connection:
-      address: amqps://vsofjkut:WWJY_EeQVli0IQadxcv_YwBOqQcSsxv9@stingray.rmq.cloudamqp.com/vsofjkut
+      address: ${CLOUDAMQP_URL}
     exchange:
       notification-command-exchange: ead.notification.command
       queue:
